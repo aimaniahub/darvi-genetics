@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #A8D5BA;
-  --color-secondary: #2F5D50;
-  --color-background-light: #050505;
+  --color-primary: #22c55e;
+  --color-secondary: #14532d;
+  --color-background-light: #ffffff;
   --font-display: "Space Grotesk", sans-serif;
   --font-serif: "Playfair Display", serif;
 }
@@ -15,19 +15,19 @@ html {
 }
 
 body {
-  @apply font-sans antialiased text-[#E4E3E0] bg-[#050505] overflow-x-hidden;
+  @apply font-sans antialiased text-gray-900 bg-white overflow-x-hidden;
 }
 
 ::selection {
-  @apply bg-primary text-[#050505];
+  @apply bg-green-200 text-green-900;
 }
 
 .glass {
-  @apply bg-black/20 backdrop-blur-lg border border-white/10;
+  @apply bg-white/70 backdrop-blur-lg border border-gray-200 shadow-sm;
 }
 
 .cinematic-gradient {
-  background: radial-gradient(circle at 50% 50%, #111111 0%, #050505 100%);
+  background: radial-gradient(circle at 50% 50%, #f0fdf4 0%, #ffffff 100%);
 }
 
 .text-reveal {
@@ -44,9 +44,9 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-[#050505];
+  @apply bg-gray-50;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-white/20 rounded-full hover:bg-white/40 transition-colors;
+  @apply bg-green-300 rounded-full hover:bg-green-400 transition-colors;
 }

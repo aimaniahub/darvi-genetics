@@ -54,7 +54,7 @@ export const Process = () => {
   });
 
   return (
-    <div className="bg-black min-h-screen text-white">
+    <div className="bg-white min-h-screen text-gray-900">
       <div className="h-screen flex flex-col justify-center px-6 md:px-20 max-w-[1600px] mx-auto relative z-10">
         <motion.h1 
           initial={{ opacity: 0, y: 40 }}
@@ -69,7 +69,7 @@ export const Process = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 1 }}
-          className="text-xl md:text-3xl text-white/60 max-w-3xl font-light leading-relaxed"
+          className="text-xl md:text-3xl text-gray-600 max-w-3xl font-light leading-relaxed"
         >
           A complete walkthrough of the Multiple Ovulation and Embryo Transfer protocol used for elite breed multiplication at our facility.
         </motion.p>
@@ -77,7 +77,7 @@ export const Process = () => {
 
       {/* Pinned Scroll Section */}
       <div ref={containerRef} className="relative h-[700vh]">
-        <div className="sticky top-0 h-screen w-full overflow-hidden bg-black">
+        <div className="sticky top-0 h-screen w-full overflow-hidden bg-white">
           
           {/* Background Images Sliding Panels */}
           {steps.map((step, i) => {
@@ -103,8 +103,8 @@ export const Process = () => {
                   className="w-full h-full object-cover opacity-50"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30" />
+                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/30" />
               </motion.div>
             );
           })}
@@ -149,10 +149,10 @@ export const Process = () => {
                         <span className="text-primary font-display font-bold text-6xl md:text-8xl tracking-tighter drop-shadow-2xl">{step.id}</span>
                         <div className="h-[2px] w-20 bg-primary/50" />
                       </div>
-                      <h2 className="text-5xl md:text-7xl font-display font-bold text-white mb-8 leading-[0.9] uppercase tracking-tighter drop-shadow-2xl">
+                      <h2 className="text-5xl md:text-7xl font-display font-bold text-gray-900 mb-8 leading-[0.9] uppercase tracking-tighter drop-shadow-sm">
                         {step.title}
                       </h2>
-                      <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed max-w-xl drop-shadow-xl">
+                      <p className="text-xl md:text-2xl text-gray-700 font-light leading-relaxed max-w-xl drop-shadow-sm">
                         {step.desc}
                       </p>
                     </motion.div>
@@ -164,20 +164,20 @@ export const Process = () => {
           
           {/* Progress Indicator */}
           <div className="absolute bottom-12 left-6 md:left-20 right-6 md:right-20 z-50 flex items-center gap-6">
-            <span className="text-white/50 font-mono text-sm">01</span>
-            <div className="flex-1 h-[1px] bg-white/20 relative">
+            <span className="text-gray-500 font-mono text-sm">01</span>
+            <div className="flex-1 h-[1px] bg-gray-200 relative">
               <motion.div 
                 className="absolute top-0 left-0 bottom-0 bg-primary origin-left"
                 style={{ scaleX: smoothProgress, right: 0 }}
               />
             </div>
-            <span className="text-white/50 font-mono text-sm">06</span>
+            <span className="text-gray-500 font-mono text-sm">06</span>
           </div>
         </div>
       </div>
 
       {/* Outro Section */}
-      <div className="min-h-screen flex items-center justify-center px-6 md:px-20 py-32 relative z-10 bg-[#050505]">
+      <div className="min-h-screen flex items-center justify-center px-6 md:px-20 py-32 relative z-10 bg-green-50">
         <div className="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <div>
             <motion.h2 
@@ -193,7 +193,7 @@ export const Process = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-xl md:text-2xl text-white/60 font-light leading-relaxed mb-12"
+              className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed mb-12"
             >
               Through the MOET protocol, a single elite Gir or Sahiwal cow can produce 10-20 superior calves in a single year, accelerating genetic progress by decades and transforming the dairy landscape.
             </motion.p>
@@ -201,11 +201,11 @@ export const Process = () => {
             <div className="grid grid-cols-2 gap-8">
               <div>
                 <p className="text-5xl font-display font-bold text-primary mb-2">10x</p>
-                <p className="text-sm font-bold uppercase tracking-widest text-white/40">Multiplication Rate</p>
+                <p className="text-sm font-bold uppercase tracking-widest text-gray-500">Multiplication Rate</p>
               </div>
               <div>
                 <p className="text-5xl font-display font-bold text-primary mb-2">100%</p>
-                <p className="text-sm font-bold uppercase tracking-widest text-white/40">Verified Genetics</p>
+                <p className="text-sm font-bold uppercase tracking-widest text-gray-500">Verified Genetics</p>
               </div>
             </div>
           </div>
@@ -215,16 +215,16 @@ export const Process = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="relative h-[600px] rounded-[2rem] overflow-hidden border border-white/10"
+            className="relative h-[600px] rounded-[2rem] overflow-hidden border border-green-200 shadow-xl"
           >
             <img 
               src="https://images.unsplash.com/photo-1596733430284-f7437764b1a9?auto=format&fit=crop&q=80&w=1200" 
               alt="Calves" 
-              className="w-full h-full object-cover opacity-80"
+              className="w-full h-full object-cover opacity-90"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+            <div className="absolute inset-0 bg-primary/5 mix-blend-overlay" />
+            <div className="absolute inset-0 bg-gradient-to-t from-green-900/40 to-transparent" />
           </motion.div>
         </div>
       </div>

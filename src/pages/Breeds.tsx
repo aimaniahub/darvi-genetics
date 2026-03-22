@@ -9,7 +9,7 @@ export const Breeds = () => {
   });
 
   return (
-    <div ref={containerRef} className="bg-[#050505] text-[#E4E3E0] min-h-screen pt-40 pb-32 overflow-hidden">
+    <div ref={containerRef} className="bg-white text-gray-900 min-h-screen pt-40 pb-32 overflow-hidden">
       <div className="max-w-[1600px] mx-auto px-6">
         <motion.h1 
           initial={{ opacity: 0, y: 40 }}
@@ -33,7 +33,7 @@ export const Breeds = () => {
         </div>
 
         {/* Sahiwal Section */}
-        <div className="relative min-h-screen flex items-center">
+        <div className="relative min-h-screen flex items-center mb-32">
           <BreedSection 
             title="Sahiwal."
             desc="Exceptional heat tolerance and efficient production. Our Sahiwal genetics ensure profitability in challenging climates."
@@ -42,6 +42,41 @@ export const Breeds = () => {
             trait="Heat Tolerance"
             align="right"
           />
+        </div>
+
+        {/* Comparison Table */}
+        <div className="max-w-5xl mx-auto mt-32 mb-32 border-t border-gray-200 pt-32">
+          <div className="text-center mb-16">
+            <p className="text-primary font-bold tracking-[0.2em] uppercase text-sm mb-6 flex items-center justify-center gap-4">
+              <span className="w-8 h-[1px] bg-primary" /> Breed Comparison
+            </p>
+            <h2 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter">
+              Gir vs <span className="font-serif italic text-primary lowercase">Sahiwal</span>
+            </h2>
+          </div>
+
+          <div className="bg-green-50 rounded-3xl border border-green-100 overflow-hidden shadow-lg">
+            <div className="grid grid-cols-3 p-6 border-b border-green-200 bg-white text-sm uppercase tracking-widest font-bold text-gray-500">
+              <div>Feature</div>
+              <div className="text-center text-primary">Gir</div>
+              <div className="text-center text-primary">Sahiwal</div>
+            </div>
+            {[
+              { feature: "Origin", gir: "Gujarat, India", sah: "Punjab, Pakistan/India" },
+              { feature: "Milk Yield (Elite)", gir: "18-25 Liters/Day", sah: "16-22 Liters/Day" },
+              { feature: "Fat Content", gir: "4.5% - 5.0%", sah: "4.5% - 5.2%" },
+              { feature: "Heat Tolerance", gir: "High", sah: "Exceptionally High" },
+              { feature: "Disease Resistance", gir: "Excellent (Tick resistant)", sah: "Very Good" },
+              { feature: "Temperament", gir: "Docile & Friendly", sah: "Lethargic & Calm" },
+              { feature: "Physical Trait", gir: "Prominent forehead, long ears", sah: "Reddish brown, heavy dewlap" }
+            ].map((row, i) => (
+              <div key={i} className="grid grid-cols-3 p-6 border-b border-green-100 hover:bg-white transition-colors text-sm md:text-base">
+                <div className="font-bold text-gray-800">{row.feature}</div>
+                <div className="text-center text-gray-600">{row.gir}</div>
+                <div className="text-center text-gray-600">{row.sah}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -73,7 +108,7 @@ const BreedSection = ({ title, desc, img, yield: yieldAmount, trait, align }: an
             className="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505] opacity-80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white opacity-80" />
         </motion.div>
       </div>
       
@@ -83,18 +118,18 @@ const BreedSection = ({ title, desc, img, yield: yieldAmount, trait, align }: an
         className={`w-full md:w-2/5 relative z-10 ${isLeft ? 'text-left' : 'text-right'}`}
       >
         <h2 className="text-[15vw] md:text-[10vw] font-serif italic text-primary leading-none mb-8 -ml-4 md:-ml-8">{title}</h2>
-        <p className="text-xl md:text-3xl font-light text-[#E4E3E0]/80 mb-16 leading-relaxed">
+        <p className="text-xl md:text-3xl font-light text-gray-700 mb-16 leading-relaxed">
           {desc}
         </p>
         
         <div className={`flex flex-col gap-12 ${isLeft ? 'border-l-2 pl-8' : 'border-r-2 pr-8 items-end'} border-primary/30`}>
           <div>
             <span className="block text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">Average Yield</span>
-            <span className="text-4xl md:text-5xl font-display tracking-tighter">{yieldAmount}</span>
+            <span className="text-4xl md:text-5xl font-display tracking-tighter text-gray-900">{yieldAmount}</span>
           </div>
           <div>
             <span className="block text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">Key Trait</span>
-            <span className="text-4xl md:text-5xl font-display tracking-tighter">{trait}</span>
+            <span className="text-4xl md:text-5xl font-display tracking-tighter text-gray-900">{trait}</span>
           </div>
         </div>
       </motion.div>

@@ -25,29 +25,27 @@ export const Navbar = () => {
     { name: 'Breeds', path: '/breeds' },
     { name: 'Technology', path: '/technology' },
     { name: 'Data Centre', path: '/data-centre' },
-    { name: 'Process', path: '/process' },
-    { name: 'Comparison', path: '/comparison' },
     { name: 'Nutrition', path: '/nutrition' },
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-[#050505]/90 backdrop-blur-xl py-4 border-b border-white/5' : 'bg-transparent py-8'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-white/90 backdrop-blur-xl py-4 border-b border-gray-100 shadow-sm' : 'bg-transparent py-8'}`}>
       <div className="max-w-[1400px] mx-auto px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-3 group">
           <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center group-hover:bg-white transition-colors">
             <Dna className="text-[#050505] w-5 h-5 transition-colors" />
           </div>
-          <span className="text-2xl font-serif italic font-bold tracking-tight text-white">
+          <span className="text-2xl font-serif italic font-bold tracking-tight text-gray-900">
             DarviGau
           </span>
         </Link>
 
-        <div className="hidden md:flex items-center gap-8 lg:gap-12">
+        <div className="hidden md:flex items-center gap-6 lg:gap-10">
           {navLinks.map((item) => (
             <Link 
               key={item.name} 
               to={item.path} 
-              className={`text-xs lg:text-sm font-medium tracking-wide uppercase transition-colors relative ${location.pathname === item.path ? 'text-primary' : 'text-white/60 hover:text-white'}`}
+              className={`text-[10px] lg:text-xs font-bold tracking-[0.15em] uppercase transition-colors relative ${location.pathname === item.path ? 'text-primary' : 'text-gray-500 hover:text-green-600'}`}
             >
               {item.name}
               {location.pathname === item.path && (
@@ -55,12 +53,12 @@ export const Navbar = () => {
               )}
             </Link>
           ))}
-          <button className="bg-white text-[#050505] px-8 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-primary transition-all">
+          <button className="bg-green-600 text-white px-6 py-3 rounded-full text-[10px] lg:text-xs font-bold uppercase tracking-widest hover:bg-green-700 transition-all">
             Get in Touch
           </button>
         </div>
 
-        <button className="md:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <button className="md:hidden text-gray-900" onClick={() => setIsMenuOpen(!isMenuOpen)}>
           {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
@@ -71,18 +69,18 @@ export const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-[#0a0a0a] shadow-2xl p-6 flex flex-col gap-6 md:hidden border-t border-white/5"
+            className="absolute top-full left-0 w-full bg-white shadow-2xl p-6 flex flex-col gap-6 md:hidden border-t border-gray-100"
           >
             {navLinks.map((item) => (
               <Link 
                 key={item.name} 
                 to={item.path} 
-                className={`text-2xl font-serif italic ${location.pathname === item.path ? 'text-primary' : 'text-white/80'}`}
+                className={`text-2xl font-serif italic ${location.pathname === item.path ? 'text-primary' : 'text-gray-600'}`}
               >
                 {item.name}
               </Link>
             ))}
-            <button className="bg-white text-[#050505] px-6 py-4 rounded-full text-sm font-bold uppercase tracking-widest mt-4">
+            <button className="bg-green-600 text-white px-6 py-4 rounded-full text-sm font-bold uppercase tracking-widest mt-4">
               Get in Touch
             </button>
           </motion.div>
@@ -94,18 +92,18 @@ export const Navbar = () => {
 
 export const Footer = () => {
   return (
-    <footer className="bg-[#050505] text-white pt-32 pb-10 border-t border-white/10">
+    <footer className="bg-green-50 text-green-950 pt-32 pb-10 border-t border-green-100">
       <div className="max-w-[1400px] mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-32">
           <div className="md:col-span-5">
             <h2 className="text-5xl md:text-7xl font-serif italic mb-8">DarviGau.</h2>
-            <p className="text-white/50 max-w-sm text-lg font-light leading-relaxed">
+            <p className="text-green-800/70 max-w-sm text-lg font-light leading-relaxed">
               Leading the revolution in Indian dairy genetics through science, technology, and a commitment to preserving elite breeds.
             </p>
           </div>
           
           <div className="md:col-span-2 md:col-start-8">
-            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-8">Navigation</h4>
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-green-900/60 mb-8">Navigation</h4>
             <ul className="space-y-4 text-lg font-light">
               <li><Link to="/services" className="hover:text-primary transition-colors">Services</Link></li>
               <li><Link to="/breeds" className="hover:text-primary transition-colors">Breeds</Link></li>
@@ -116,8 +114,8 @@ export const Footer = () => {
           </div>
 
           <div className="md:col-span-3">
-            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/40 mb-8">Contact</h4>
-            <ul className="space-y-4 text-lg font-light text-white/80">
+            <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-green-900/60 mb-8">Contact</h4>
+            <ul className="space-y-4 text-lg font-light text-green-900/80">
               <li>info@darvigau.com</li>
               <li>+91 98765 43210</li>
               <li>Gujarat, India</li>
@@ -125,11 +123,11 @@ export const Footer = () => {
           </div>
         </div>
         
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-white/30 text-xs font-bold uppercase tracking-widest">
+        <div className="pt-8 border-t border-green-200 flex flex-col md:flex-row justify-between items-center gap-6 text-green-800/50 text-xs font-bold uppercase tracking-widest">
           <p>© 2026 DarviGau Genetics.</p>
           <div className="flex gap-8">
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
+            <a href="#" className="hover:text-green-600 transition-colors">Privacy</a>
+            <a href="#" className="hover:text-green-600 transition-colors">Terms</a>
           </div>
         </div>
       </div>
@@ -139,7 +137,7 @@ export const Footer = () => {
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="min-h-screen flex flex-col selection:bg-primary selection:text-[#050505] bg-[#050505]">
+    <div className="min-h-screen flex flex-col selection:bg-green-200 selection:text-green-900 bg-white">
       <Navbar />
       <main className="flex-grow">{children}</main>
       <Footer />

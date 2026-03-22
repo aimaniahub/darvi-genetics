@@ -40,7 +40,7 @@ export const Comparison = () => {
   ];
 
   return (
-    <div className="bg-[#050505] min-h-screen pt-32 pb-20 text-[#E4E3E0]">
+    <div className="bg-white min-h-screen pt-32 pb-20 text-gray-900">
       <div className="max-w-[1400px] mx-auto px-6">
         
         {/* Header */}
@@ -49,7 +49,7 @@ export const Comparison = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl md:text-6xl font-display font-bold text-white tracking-tighter mb-6 leading-tight uppercase"
+            className="text-4xl md:text-6xl font-display font-bold text-gray-900 tracking-tighter mb-6 leading-tight uppercase"
           >
             Traditional vs. Embryo — <br />
             <span className="text-primary font-serif italic lowercase">Why ET Wins</span>
@@ -58,7 +58,7 @@ export const Comparison = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 1 }}
-            className="text-xl text-white/60 font-light leading-relaxed"
+            className="text-xl text-gray-600 font-light leading-relaxed"
           >
             The difference isn't just in numbers — it's in genetic certainty. Embryo transfer creates predictable, high-performance progeny from scientifically selected parents.
           </motion.p>
@@ -69,10 +69,10 @@ export const Comparison = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="relative rounded-[2rem] overflow-hidden shadow-2xl flex flex-col md:flex-row h-[600px] mb-20 border border-white/10"
+          className="relative rounded-[2rem] overflow-hidden shadow-xl flex flex-col md:flex-row h-[600px] mb-20 border border-gray-200"
         >
           {/* VS Badge */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-16 h-16 bg-primary rounded-full flex items-center justify-center text-black font-bold shadow-2xl border-4 border-[#050505] text-xl">
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white font-bold shadow-2xl border-4 border-white text-xl">
             VS
           </div>
 
@@ -86,9 +86,9 @@ export const Comparison = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
             <div className="absolute bottom-10 left-10 text-white">
-              <p className="text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Traditional Breeding</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-white/80 mb-2">Traditional Breeding</p>
               <h3 className="text-4xl font-display font-bold mb-2 uppercase tracking-tighter">Conventional</h3>
-              <p className="text-white/60 font-light text-lg">Unverified genetics, low yield, slow improvement</p>
+              <p className="text-white/90 font-light text-lg">Unverified genetics, low yield, slow improvement</p>
             </div>
           </div>
 
@@ -105,7 +105,7 @@ export const Comparison = () => {
             <div className="absolute bottom-10 left-10 text-white">
               <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">Embryo Transfer</p>
               <h3 className="text-4xl font-display font-bold mb-2 uppercase tracking-tighter">ET-Bred Elite</h3>
-              <p className="text-white/80 font-light text-lg">Verified pedigree, 3x yield, proven genetics</p>
+              <p className="text-white font-light text-lg">Verified pedigree, 3x yield, proven genetics</p>
             </div>
           </div>
         </motion.div>
@@ -116,16 +116,16 @@ export const Comparison = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="bg-[#0a0a0a] rounded-[2rem] shadow-2xl p-8 md:p-12 mb-32 border border-white/5"
+          className="bg-green-50 rounded-[2rem] shadow-xl p-8 md:p-12 mb-32 border border-green-100"
         >
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[800px]">
               <thead>
-                <tr className="border-b border-white/10 text-xs font-bold uppercase tracking-widest text-white/40">
+                <tr className="border-b border-green-200 text-xs font-bold uppercase tracking-widest text-gray-500">
                   <th className="py-6 px-4 w-1/4">Trait</th>
-                  <th className="py-6 px-4 w-1/4 text-red-400/70"><span className="flex items-center gap-2"><X className="w-4 h-4"/> Traditional</span></th>
-                  <th className="py-6 px-4 w-1/4 text-white"><span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> Embryo (ET)</span></th>
-                  <th className="py-6 px-4 w-1/4 text-white/40"><span className="flex items-center gap-2"><TrendingUp className="w-4 h-4"/> Gain</span></th>
+                  <th className="py-6 px-4 w-1/4 text-red-500"><span className="flex items-center gap-2"><X className="w-4 h-4"/> Traditional</span></th>
+                  <th className="py-6 px-4 w-1/4 text-gray-900"><span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> Embryo (ET)</span></th>
+                  <th className="py-6 px-4 w-1/4 text-gray-500"><span className="flex items-center gap-2"><TrendingUp className="w-4 h-4"/> Gain</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -136,11 +136,11 @@ export const Comparison = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ delay: i * 0.05, duration: 0.5 }}
-                    className="border-b border-white/5 hover:bg-white/5 transition-colors"
+                    className="border-b border-green-100 hover:bg-white transition-colors"
                   >
-                    <td className="py-6 px-4 font-medium text-white/90">{trait.name}</td>
-                    <td className="py-6 px-4 text-white/40 font-mono text-sm">{trait.trad}</td>
-                    <td className="py-6 px-4 text-white font-mono font-semibold text-sm">{trait.et}</td>
+                    <td className="py-6 px-4 font-medium text-gray-900">{trait.name}</td>
+                    <td className="py-6 px-4 text-gray-500 font-mono text-sm">{trait.trad}</td>
+                    <td className="py-6 px-4 text-gray-900 font-mono font-semibold text-sm">{trait.et}</td>
                     <td className="py-6 px-4">
                       <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full border border-primary/20">
                         {trait.gain}
@@ -159,7 +159,7 @@ export const Comparison = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-display font-bold text-white mb-12 uppercase tracking-tighter"
+            className="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-12 uppercase tracking-tighter"
           >
             Why Farmers Are Switching
           </motion.h2>
@@ -173,14 +173,14 @@ export const Comparison = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ delay: i * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="bg-[#0a0a0a] p-8 md:p-10 rounded-[2rem] border border-white/5 shadow-sm hover:border-white/20 transition-colors flex flex-col md:flex-row gap-6 group"
+                  className="bg-white p-8 md:p-10 rounded-[2rem] border border-gray-200 shadow-sm hover:border-green-200 hover:shadow-md transition-all flex flex-col md:flex-row gap-6 group"
                 >
-                  <div className="shrink-0 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary transition-colors duration-500">
-                    <Icon className="w-8 h-8 text-primary group-hover:text-black transition-colors duration-500" />
+                  <div className="shrink-0 w-16 h-16 bg-green-50 rounded-full flex items-center justify-center group-hover:bg-primary transition-colors duration-500">
+                    <Icon className="w-8 h-8 text-primary group-hover:text-white transition-colors duration-500" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-white mb-4 tracking-tight">{reason.title}</h3>
-                    <p className="text-white/60 text-base leading-relaxed">{reason.desc}</p>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight">{reason.title}</h3>
+                    <p className="text-gray-600 text-base leading-relaxed">{reason.desc}</p>
                   </div>
                 </motion.div>
               );
