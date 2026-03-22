@@ -54,22 +54,28 @@ export const Process = () => {
   });
 
   return (
-    <div className="bg-white min-h-screen text-gray-900">
-      <div className="h-screen flex flex-col justify-center px-6 md:px-20 max-w-[1600px] mx-auto relative z-10">
-        <motion.h1 
+    <div className="bg-background-light min-h-screen text-secondary">
+      <div className="h-screen flex flex-col justify-center px-6 md:px-20 max-w-[1400px] mx-auto relative z-10">
+        <motion.div 
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-[12vw] md:text-[8vw] font-display font-bold tracking-tighter mb-6 uppercase leading-[0.85]"
+          className="mb-6"
         >
-          The MOET <br />
-          <span className="text-primary font-serif italic lowercase">Protocol.</span>
-        </motion.h1>
+          <div className="inline-flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-full mb-8 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-primary" />
+            <span className="text-xs font-bold uppercase tracking-widest text-secondary/70">Our Process</span>
+          </div>
+          <h1 className="text-6xl md:text-8xl lg:text-[9rem] font-serif italic leading-[0.9] tracking-tight text-secondary">
+            The MOET <br />
+            <span className="font-display font-medium not-italic text-primary">Protocol.</span>
+          </h1>
+        </motion.div>
         <motion.p 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 1 }}
-          className="text-xl md:text-3xl text-gray-600 max-w-3xl font-light leading-relaxed"
+          className="text-xl md:text-2xl text-secondary/70 max-w-3xl font-light leading-relaxed"
         >
           A complete walkthrough of the Multiple Ovulation and Embryo Transfer protocol used for elite breed multiplication at our facility.
         </motion.p>
@@ -77,7 +83,7 @@ export const Process = () => {
 
       {/* Pinned Scroll Section */}
       <div ref={containerRef} className="relative h-[700vh]">
-        <div className="sticky top-0 h-screen w-full overflow-hidden bg-white">
+        <div className="sticky top-0 h-screen w-full overflow-hidden bg-background-light">
           
           {/* Background Images Sliding Panels */}
           {steps.map((step, i) => {
@@ -100,18 +106,18 @@ export const Process = () => {
                 <img 
                   src={step.img} 
                   alt={step.title}
-                  className="w-full h-full object-cover opacity-50"
+                  className="w-full h-full object-cover opacity-30"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/30" />
+                <div className="absolute inset-0 bg-gradient-to-r from-background-light via-background-light/90 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background-light via-transparent to-background-light/30" />
               </motion.div>
             );
           })}
 
           {/* Foreground Content */}
           <div className="absolute inset-0 z-50 flex items-center">
-            <div className="max-w-[1600px] mx-auto px-6 md:px-20 w-full">
+            <div className="max-w-[1400px] mx-auto px-6 md:px-20 w-full">
               <div className="relative h-[50vh] w-full md:w-1/2">
                 {steps.map((step, i) => {
                   const stepStart = i / steps.length;
@@ -146,13 +152,13 @@ export const Process = () => {
                       className="absolute inset-0 flex flex-col justify-center"
                     >
                       <div className="flex items-baseline gap-6 mb-6">
-                        <span className="text-primary font-display font-bold text-6xl md:text-8xl tracking-tighter drop-shadow-2xl">{step.id}</span>
-                        <div className="h-[2px] w-20 bg-primary/50" />
+                        <span className="text-primary font-serif italic text-6xl md:text-8xl drop-shadow-sm">{step.id}</span>
+                        <div className="h-[1px] w-20 bg-primary/30" />
                       </div>
-                      <h2 className="text-5xl md:text-7xl font-display font-bold text-gray-900 mb-8 leading-[0.9] uppercase tracking-tighter drop-shadow-sm">
+                      <h2 className="text-5xl md:text-7xl font-serif text-secondary mb-8 leading-[0.9] drop-shadow-sm">
                         {step.title}
                       </h2>
-                      <p className="text-xl md:text-2xl text-gray-700 font-light leading-relaxed max-w-xl drop-shadow-sm">
+                      <p className="text-xl md:text-2xl text-secondary/70 font-light leading-relaxed max-w-xl drop-shadow-sm">
                         {step.desc}
                       </p>
                     </motion.div>
@@ -164,67 +170,70 @@ export const Process = () => {
           
           {/* Progress Indicator */}
           <div className="absolute bottom-12 left-6 md:left-20 right-6 md:right-20 z-50 flex items-center gap-6">
-            <span className="text-gray-500 font-mono text-sm">01</span>
+            <span className="text-secondary/50 font-mono text-sm">01</span>
             <div className="flex-1 h-[1px] bg-gray-200 relative">
               <motion.div 
                 className="absolute top-0 left-0 bottom-0 bg-primary origin-left"
                 style={{ scaleX: smoothProgress, right: 0 }}
               />
             </div>
-            <span className="text-gray-500 font-mono text-sm">06</span>
+            <span className="text-secondary/50 font-mono text-sm">06</span>
           </div>
         </div>
       </div>
 
       {/* Outro Section */}
-      <div className="min-h-screen flex items-center justify-center px-6 md:px-20 py-32 relative z-10 bg-green-50">
-        <div className="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+      <div className="min-h-screen flex items-center justify-center px-6 md:px-20 py-32 relative z-10 bg-white">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <div>
+            <div className="inline-flex items-center gap-2 bg-background-light border border-gray-200 px-4 py-2 rounded-full mb-8 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-primary" />
+              <span className="text-xs font-bold uppercase tracking-widest text-secondary/70">Outcome</span>
+            </div>
             <motion.h2 
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-5xl md:text-7xl font-display font-bold mb-8 uppercase tracking-tighter"
+              className="text-5xl md:text-7xl font-serif text-secondary mb-8"
             >
-              The <span className="text-primary italic font-serif lowercase">Result.</span>
+              The <span className="text-primary italic font-serif">Result.</span>
             </motion.h2>
             <motion.p 
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed mb-12"
+              className="text-xl md:text-2xl text-secondary/70 font-light leading-relaxed mb-12"
             >
               Through the MOET protocol, a single elite Gir or Sahiwal cow can produce 10-20 superior calves in a single year, accelerating genetic progress by decades and transforming the dairy landscape.
             </motion.p>
             
             <div className="grid grid-cols-2 gap-8">
-              <div>
-                <p className="text-5xl font-display font-bold text-primary mb-2">10x</p>
-                <p className="text-sm font-bold uppercase tracking-widest text-gray-500">Multiplication Rate</p>
+              <div className="bg-background-light p-8 rounded-[2rem] border border-gray-100">
+                <p className="text-5xl font-serif text-primary mb-2">10x</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-secondary/50">Multiplication Rate</p>
               </div>
-              <div>
-                <p className="text-5xl font-display font-bold text-primary mb-2">100%</p>
-                <p className="text-sm font-bold uppercase tracking-widest text-gray-500">Verified Genetics</p>
+              <div className="bg-background-light p-8 rounded-[2rem] border border-gray-100">
+                <p className="text-5xl font-serif text-primary mb-2">100%</p>
+                <p className="text-xs font-bold uppercase tracking-widest text-secondary/50">Verified Genetics</p>
               </div>
             </div>
           </div>
           
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1 }}
-            className="relative h-[600px] rounded-[2rem] overflow-hidden border border-green-200 shadow-xl"
+            className="relative h-[600px] rounded-[3rem] overflow-hidden shadow-sm"
           >
             <img 
               src="https://images.unsplash.com/photo-1596733430284-f7437764b1a9?auto=format&fit=crop&q=80&w=1200" 
               alt="Calves" 
-              className="w-full h-full object-cover opacity-90"
+              className="w-full h-full object-cover opacity-90 transition-transform duration-700 hover:scale-105"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-primary/5 mix-blend-overlay" />
-            <div className="absolute inset-0 bg-gradient-to-t from-green-900/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent" />
           </motion.div>
         </div>
       </div>

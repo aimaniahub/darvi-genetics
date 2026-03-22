@@ -1,29 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #22c55e;
-  --color-secondary: #14532d;
-  --color-background-light: #ffffff;
-  --font-display: "Space Grotesk", sans-serif;
+  --color-primary: #c5e86c;
+  --color-primary-dark: #a3cc40;
+  --color-secondary: #1e3b2e;
+  --color-background-light: #f9f9f6;
+  --font-display: "Inter", sans-serif;
   --font-serif: "Playfair Display", serif;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@400;600;700&display=swap');
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  @apply font-sans antialiased text-gray-900 bg-white overflow-x-hidden;
+  @apply font-display antialiased text-secondary bg-background-light overflow-x-hidden;
 }
 
 ::selection {
-  @apply bg-green-200 text-green-900;
+  @apply bg-primary text-secondary;
 }
 
 .glass {
-  @apply bg-white/70 backdrop-blur-lg border border-gray-200 shadow-sm;
+  @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-sm;
 }
 
 .cinematic-gradient {
@@ -44,9 +44,9 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-50;
+  @apply bg-background-light;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-green-300 rounded-full hover:bg-green-400 transition-colors;
+  @apply bg-secondary/20 rounded-full hover:bg-secondary/40 transition-colors;
 }

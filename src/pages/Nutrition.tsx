@@ -5,23 +5,23 @@ import { Calculator, Wheat, Droplets, Activity, Leaf } from 'lucide-react';
 const BeforeAfterStats = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-      <div className="bg-white p-10 rounded-[32px] border border-green-100 shadow-xl relative overflow-hidden group">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        <h3 className="text-2xl font-display font-bold text-gray-900 mb-4 relative z-10">Milk Yield Increase</h3>
+      <div className="bg-white p-10 rounded-[3rem] border border-gray-200 shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <h3 className="text-2xl font-serif italic text-secondary mb-4 relative z-10">Milk Yield Increase</h3>
         <div className="flex items-baseline gap-4 relative z-10">
           <span className="text-6xl font-display font-bold text-primary">+0.27</span>
-          <span className="text-xl text-gray-500 font-light">kg / day</span>
+          <span className="text-xl text-secondary/50 font-light">kg / day</span>
         </div>
-        <p className="text-gray-500 mt-4 text-sm relative z-10">Average increase observed with balanced ration planning.</p>
+        <p className="text-secondary/70 mt-4 text-sm relative z-10 font-light">Average increase observed with balanced ration planning.</p>
       </div>
-      <div className="bg-white p-10 rounded-[32px] border border-green-100 shadow-xl relative overflow-hidden group">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        <h3 className="text-2xl font-display font-bold text-gray-900 mb-4 relative z-10">Feed Cost Reduction</h3>
+      <div className="bg-white p-10 rounded-[3rem] border border-gray-200 shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <h3 className="text-2xl font-serif italic text-secondary mb-4 relative z-10">Feed Cost Reduction</h3>
         <div className="flex items-baseline gap-4 relative z-10">
           <span className="text-6xl font-display font-bold text-primary">-₹16.33</span>
-          <span className="text-xl text-gray-500 font-light">/ day</span>
+          <span className="text-xl text-secondary/50 font-light">/ day</span>
         </div>
-        <p className="text-gray-500 mt-4 text-sm relative z-10">Average savings per animal through optimized feed formulation.</p>
+        <p className="text-secondary/70 mt-4 text-sm relative z-10 font-light">Average savings per animal through optimized feed formulation.</p>
       </div>
     </div>
   );
@@ -48,18 +48,21 @@ const FeedingStrategyCards = () => {
 
   return (
     <div className="mb-32">
-      <div className="mb-12">
-        <p className="text-xs font-bold uppercase tracking-widest text-primary mb-4">Lifecycle Management</p>
-        <h2 className="text-3xl font-display font-bold text-gray-900 uppercase tracking-tighter">Feeding Strategies</h2>
+      <div className="mb-12 text-center">
+        <div className="inline-flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-full mb-6 shadow-sm">
+          <span className="w-2 h-2 rounded-full bg-primary" />
+          <span className="text-xs font-bold uppercase tracking-widest text-secondary/70">Lifecycle Management</span>
+        </div>
+        <h2 className="text-4xl md:text-5xl font-serif italic text-secondary">Feeding <span className="font-display font-medium not-italic text-secondary/40">Strategies</span></h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {strategies.map((strategy, i) => (
-          <div key={i} className="bg-white p-8 rounded-[32px] border border-gray-200 hover:border-primary/30 hover:shadow-md transition-all">
-            <div className="w-12 h-12 bg-green-50 rounded-2xl flex items-center justify-center mb-6">
+          <div key={i} className="bg-white p-10 rounded-[3rem] border border-gray-200 hover:border-primary/30 hover:shadow-md transition-all group">
+            <div className="w-16 h-16 bg-background-light rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
               {strategy.icon}
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-4">{strategy.title}</h3>
-            <p className="text-gray-600 font-light leading-relaxed text-sm">{strategy.desc}</p>
+            <h3 className="text-2xl font-serif text-secondary mb-4">{strategy.title}</h3>
+            <p className="text-secondary/70 font-light leading-relaxed">{strategy.desc}</p>
           </div>
         ))}
       </div>
@@ -80,21 +83,24 @@ export const Nutrition = () => {
   const dryFodder = ((parseFloat(dryMatterIntake) - parseFloat(concentrate)) * 0.3 * 1.1).toFixed(1);
 
   return (
-    <div className="bg-white min-h-screen pt-32 pb-20 text-gray-900">
+    <div className="bg-background-light min-h-screen pt-32 pb-20 text-secondary">
       <div className="max-w-[1400px] mx-auto px-6">
         
         {/* Header */}
         <div className="mb-16">
-          <p className="text-primary font-bold tracking-widest uppercase text-sm mb-4">Precision Feeding</p>
+          <div className="inline-flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-full mb-8 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-primary" />
+            <span className="text-xs font-bold uppercase tracking-widest text-secondary/70">Precision Feeding</span>
+          </div>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl md:text-6xl font-display font-bold text-gray-900 tracking-tighter mb-6 uppercase"
+            className="text-6xl md:text-8xl lg:text-[9rem] font-serif italic leading-[0.9] tracking-tight text-secondary mb-8"
           >
-            Nutrition Management
+            Nutrition <br/> <span className="font-display font-medium not-italic text-primary">Management.</span>
           </motion.h1>
-          <p className="text-lg text-gray-600 font-light max-w-2xl">
+          <p className="text-xl text-secondary/70 font-light max-w-2xl">
             Optimized ration planning for Gir and Sahiwal cows. Input your cow's parameters to get a scientifically balanced fodder-to-concentrate ratio.
           </p>
         </div>
@@ -102,77 +108,77 @@ export const Nutrition = () => {
         <BeforeAfterStats />
 
         {/* Calculator Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-32 relative items-start">
           
           {/* Controls */}
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="lg:col-span-5 bg-white rounded-[40px] p-8 shadow-xl border border-green-100"
+            className="lg:col-span-5 bg-white rounded-[3rem] p-10 shadow-sm border border-gray-200 lg:sticky lg:top-32"
           >
-            <div className="flex items-center gap-3 mb-8 pb-6 border-b border-gray-100">
-              <div className="w-10 h-10 bg-green-50 rounded-xl flex items-center justify-center">
-                <Calculator className="w-5 h-5 text-primary" />
+            <div className="flex items-center gap-4 mb-10 pb-8 border-b border-gray-100">
+              <div className="w-12 h-12 bg-background-light rounded-2xl flex items-center justify-center">
+                <Calculator className="w-6 h-6 text-primary" />
               </div>
-              <h2 className="text-xl font-bold text-gray-900">Ration Calculator</h2>
+              <h2 className="text-2xl font-serif text-secondary">Ration Calculator</h2>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-10">
               {/* Body Weight */}
               <div>
-                <div className="flex justify-between mb-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Body Weight (kg)</label>
-                  <span className="font-mono font-bold text-gray-900">{weight} kg</span>
+                <div className="flex justify-between mb-4">
+                  <label className="text-xs font-bold uppercase tracking-widest text-secondary/60">Body Weight (kg)</label>
+                  <span className="font-mono font-bold text-secondary">{weight} kg</span>
                 </div>
                 <input 
                   type="range" 
                   min="300" max="700" step="10"
                   value={weight}
                   onChange={(e) => setWeight(Number(e.target.value))}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary"
+                  className="w-full h-2 bg-background-light rounded-lg appearance-none cursor-pointer accent-primary"
                 />
               </div>
 
               {/* Daily Milk Yield */}
               <div>
-                <div className="flex justify-between mb-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Daily Milk Yield (Litres)</label>
-                  <span className="font-mono font-bold text-gray-900">{yieldLiters} L</span>
+                <div className="flex justify-between mb-4">
+                  <label className="text-xs font-bold uppercase tracking-widest text-secondary/60">Daily Milk Yield (Litres)</label>
+                  <span className="font-mono font-bold text-secondary">{yieldLiters} L</span>
                 </div>
                 <input 
                   type="range" 
                   min="0" max="40" step="1"
                   value={yieldLiters}
                   onChange={(e) => setYieldLiters(Number(e.target.value))}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary"
+                  className="w-full h-2 bg-background-light rounded-lg appearance-none cursor-pointer accent-primary"
                 />
               </div>
 
               {/* Milk Fat */}
               <div>
-                <div className="flex justify-between mb-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-gray-500">Milk Fat %</label>
-                  <span className="font-mono font-bold text-gray-900">{fat}%</span>
+                <div className="flex justify-between mb-4">
+                  <label className="text-xs font-bold uppercase tracking-widest text-secondary/60">Milk Fat %</label>
+                  <span className="font-mono font-bold text-secondary">{fat}%</span>
                 </div>
                 <input 
                   type="range" 
                   min="3.0" max="7.0" step="0.1"
                   value={fat}
                   onChange={(e) => setFat(Number(e.target.value))}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary"
+                  className="w-full h-2 bg-background-light rounded-lg appearance-none cursor-pointer accent-primary"
                 />
               </div>
 
               {/* Lactation Stage */}
               <div>
-                <label className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3 block">Lactation Stage</label>
+                <label className="text-xs font-bold uppercase tracking-widest text-secondary/60 mb-4 block">Lactation Stage</label>
                 <div className="grid grid-cols-2 gap-3">
                   {['Early (0-90d)', 'Mid (90-180d)', 'Late (180-305d)', 'Dry Period'].map((s) => (
                     <button
                       key={s}
                       onClick={() => setStage(s)}
-                      className={`py-3 px-4 rounded-xl text-sm font-semibold transition-all border ${stage === s ? 'bg-primary text-white border-primary shadow-md' : 'bg-white border-gray-200 text-gray-600 hover:bg-green-50 hover:border-green-200'}`}
+                      className={`py-3 px-4 rounded-xl text-sm font-medium transition-all border ${stage === s ? 'bg-primary text-secondary border-primary shadow-sm' : 'bg-white border-gray-200 text-secondary/70 hover:bg-background-light hover:border-gray-300'}`}
                     >
                       {s}
                     </button>
@@ -182,60 +188,71 @@ export const Nutrition = () => {
             </div>
           </motion.div>
 
-          {/* Results */}
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="lg:col-span-7 bg-green-50 rounded-[40px] p-8 md:p-12 shadow-xl border border-green-100 flex flex-col justify-center"
-          >
-            <div className="text-center mb-12">
-              <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 border border-green-200 shadow-sm">
-                <Wheat className="w-8 h-8 text-primary" />
+          {/* Right Column (Scrollable Content) */}
+          <div className="lg:col-span-7 space-y-12">
+            
+            {/* Results */}
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="bg-white rounded-[3rem] p-10 md:p-16 shadow-sm border border-gray-200 flex flex-col justify-center relative overflow-hidden"
+            >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+            <div className="text-center mb-16 relative z-10">
+              <div className="w-20 h-20 bg-background-light rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-sm">
+                <Wheat className="w-10 h-10 text-primary" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Recommended Daily Ration</h3>
               <p className="text-gray-500 text-sm">Based on {weight}kg body weight and {yieldLiters}L yield</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white p-6 rounded-3xl text-center border border-gray-200 shadow-sm">
-                <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Total Dry Matter</p>
-                <p className="text-4xl font-display font-bold text-gray-900">{dryMatterIntake} <span className="text-lg text-gray-400">kg</span></p>
+              <div className="bg-background-light p-8 rounded-3xl text-center border border-gray-200 shadow-sm">
+                <p className="text-xs font-bold uppercase tracking-widest text-secondary/60 mb-4">Total Dry Matter</p>
+                <p className="text-5xl font-serif text-secondary">{dryMatterIntake} <span className="text-xl text-secondary/40 font-sans">kg</span></p>
               </div>
-              <div className="bg-white p-6 rounded-3xl text-center border border-primary/20 shadow-sm">
-                <p className="text-xs font-bold uppercase tracking-widest text-primary mb-2">Concentrate</p>
-                <p className="text-4xl font-display font-bold text-primary">{concentrate} <span className="text-lg text-primary/50">kg</span></p>
+              <div className="bg-primary/5 p-8 rounded-3xl text-center border border-primary/20 shadow-sm">
+                <p className="text-xs font-bold uppercase tracking-widest text-primary mb-4">Concentrate</p>
+                <p className="text-5xl font-serif text-primary">{concentrate} <span className="text-xl text-primary/50 font-sans">kg</span></p>
               </div>
-              <div className="bg-white p-6 rounded-3xl text-center border border-gray-200 shadow-sm">
-                <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">Green Fodder</p>
-                <p className="text-4xl font-display font-bold text-gray-900">{greenFodder} <span className="text-lg text-gray-400">kg</span></p>
+              <div className="bg-background-light p-8 rounded-3xl text-center border border-gray-200 shadow-sm">
+                <p className="text-xs font-bold uppercase tracking-widest text-secondary/60 mb-4">Green Fodder</p>
+                <p className="text-5xl font-serif text-secondary">{greenFodder} <span className="text-xl text-secondary/40 font-sans">kg</span></p>
               </div>
             </div>
             
-            <div className="mt-8 p-6 bg-white border border-gray-200 text-gray-700 rounded-3xl flex items-start gap-4 shadow-sm">
-              <Activity className="w-6 h-6 text-primary shrink-0" />
-              <p className="text-sm font-light leading-relaxed opacity-90">
-                <strong className="font-bold text-primary">Pro Tip:</strong> Ensure clean drinking water is available ad libitum. A cow producing {yieldLiters}L of milk requires approximately {(yieldLiters * 3) + 40}L of water daily.
+            <div className="mt-8 p-8 bg-white border border-gray-200 text-secondary/80 rounded-3xl flex items-start gap-6 shadow-sm">
+              <div className="p-3 bg-primary/10 rounded-2xl shrink-0">
+                <Activity className="w-6 h-6 text-primary" />
+              </div>
+              <p className="text-base font-light leading-relaxed">
+                <strong className="font-medium text-secondary block mb-1">Pro Tip:</strong> Ensure clean drinking water is available ad libitum. A cow producing {yieldLiters}L of milk requires approximately {(yieldLiters * 3) + 40}L of water daily.
               </p>
             </div>
           </motion.div>
 
-        </div>
+          <FeedingStrategyCards />
 
-        <FeedingStrategyCards />
-
-        {/* Reference Guide */}
-        <div>
-          <p className="text-xs font-bold uppercase tracking-widest text-primary mb-4">Reference Guide</p>
-          <h2 className="text-3xl font-display font-bold text-gray-900 mb-10 uppercase tracking-tighter">Fodder & Feed Ingredients</h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Reference Guide */}
+          <div>
+            <div className="mb-12 text-center">
+              <div className="inline-flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-full mb-6 shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-primary" />
+                <span className="text-xs font-bold uppercase tracking-widest text-secondary/70">Reference Guide</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-serif italic text-secondary">Fodder & <span className="font-display font-medium not-italic text-secondary/40">Feed Ingredients</span></h2>
+            </div>
             
-            {/* Roughage */}
-            <div className="bg-white rounded-[32px] p-8 border border-gray-200 shadow-xl">
-              <div className="flex items-center gap-3 mb-8">
-                <Leaf className="w-5 h-5 text-primary" />
-                <h3 className="text-xl font-bold text-gray-900">Roughage / Fodder Types</h3>
+            <div className="grid grid-cols-1 gap-8">
+              
+              {/* Roughage */}
+              <div className="bg-white rounded-[3rem] p-10 border border-gray-200 shadow-sm">
+                <div className="flex items-center gap-4 mb-10">
+                <div className="p-3 bg-background-light rounded-2xl">
+                  <Leaf className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-2xl font-serif text-secondary">Roughage / Fodder Types</h3>
               </div>
               <div className="space-y-4">
                 {[
@@ -244,22 +261,24 @@ export const Nutrition = () => {
                   { name: "Legume Hay (Lucerne/Berseem)", desc: "Protein-rich roughage — 3-5 kg", val: "85% DM" },
                   { name: "Silage (Maize/Sorghum)", desc: "Fermented feed — 10-15 kg fresh", val: "30% DM" },
                 ].map((item, i) => (
-                  <div key={i} className="flex justify-between items-center p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:border-primary/30 transition-colors">
+                  <div key={i} className="flex justify-between items-center p-6 rounded-2xl bg-background-light border border-gray-100 hover:border-primary/30 transition-colors group">
                     <div>
-                      <p className="font-bold text-gray-900 text-sm">{item.name}</p>
-                      <p className="text-xs text-gray-500 mt-1">{item.desc}</p>
+                      <p className="font-serif text-lg text-secondary mb-1">{item.name}</p>
+                      <p className="text-sm text-secondary/60 font-light">{item.desc}</p>
                     </div>
-                    <span className="text-xs font-mono font-bold text-primary bg-green-50 px-3 py-1 rounded-full border border-green-100">{item.val}</span>
+                    <span className="text-xs font-mono font-bold text-primary bg-white px-4 py-2 rounded-full border border-gray-200 shadow-sm group-hover:border-primary/30 transition-colors">{item.val}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Concentrates */}
-            <div className="bg-white rounded-[32px] p-8 border border-gray-200 shadow-xl">
-              <div className="flex items-center gap-3 mb-8">
-                <Droplets className="w-5 h-5 text-primary" />
-                <h3 className="text-xl font-bold text-gray-900">Concentrate Ingredients</h3>
+            <div className="bg-white rounded-[3rem] p-10 border border-gray-200 shadow-sm">
+              <div className="flex items-center gap-4 mb-10">
+                <div className="p-3 bg-background-light rounded-2xl">
+                  <Droplets className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-2xl font-serif text-secondary">Concentrate Ingredients</h3>
               </div>
               <div className="space-y-4">
                 {[
@@ -268,20 +287,20 @@ export const Nutrition = () => {
                   { name: "Cotton Seed Cake", cp: "22-24%", tdn: "65%", rate: "0.5-1 kg/day" },
                   { name: "Mineral Mixture", cp: "-", tdn: "-", rate: "30-50 g/day" },
                 ].map((item, i) => (
-                  <div key={i} className="p-4 rounded-2xl bg-gray-50 border border-gray-100 hover:border-primary/30 transition-colors">
-                    <p className="font-bold text-gray-900 text-sm mb-3">{item.name}</p>
-                    <div className="grid grid-cols-3 gap-4 text-xs">
+                  <div key={i} className="p-6 rounded-2xl bg-background-light border border-gray-100 hover:border-primary/30 transition-colors">
+                    <p className="font-serif text-lg text-secondary mb-4">{item.name}</p>
+                    <div className="grid grid-cols-3 gap-6 text-sm">
                       <div>
-                        <span className="block text-gray-500 uppercase tracking-widest mb-1">CP</span>
-                        <span className="font-mono font-semibold text-gray-700">{item.cp}</span>
+                        <span className="block text-secondary/50 uppercase tracking-widest text-xs font-bold mb-2">CP</span>
+                        <span className="font-mono font-medium text-secondary/80">{item.cp}</span>
                       </div>
                       <div>
-                        <span className="block text-gray-500 uppercase tracking-widest mb-1">TDN</span>
-                        <span className="font-mono font-semibold text-gray-700">{item.tdn}</span>
+                        <span className="block text-secondary/50 uppercase tracking-widest text-xs font-bold mb-2">TDN</span>
+                        <span className="font-mono font-medium text-secondary/80">{item.tdn}</span>
                       </div>
                       <div>
-                        <span className="block text-gray-500 uppercase tracking-widest mb-1">Rate</span>
-                        <span className="font-mono font-semibold text-gray-700">{item.rate}</span>
+                        <span className="block text-secondary/50 uppercase tracking-widest text-xs font-bold mb-2">Rate</span>
+                        <span className="font-mono font-medium text-secondary/80">{item.rate}</span>
                       </div>
                     </div>
                   </div>
@@ -292,5 +311,7 @@ export const Nutrition = () => {
         </div>
       </div>
     </div>
+  </div>
+</div>
   );
 };

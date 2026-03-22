@@ -1,6 +1,60 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 
+const BreedSection = ({ title, desc, img, yield: yieldAmount, trait, align }: any) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+
+  const yImg = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+  const yText = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
+
+  const isLeft = align === 'left';
+
+  return (
+    <section ref={ref} className={`w-full flex flex-col ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 md:gap-24 relative`}>
+      
+      {/* Image Container */}
+      <div className="w-full md:w-3/5 h-[60vh] md:h-[90vh] relative overflow-hidden rounded-[3rem] shadow-sm">
+        <motion.div style={{ y: yImg }} className="absolute inset-0 -top-[20%] -bottom-[20%]">
+          <img 
+            src={img} 
+            alt={title} 
+            className="w-full h-full object-cover opacity-80 transition-all duration-700 hover:scale-105"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background-light via-transparent to-background-light opacity-60" />
+        </motion.div>
+      </div>
+      
+      {/* Text Container */}
+      <motion.div 
+        style={{ y: yText, opacity }}
+        className={`w-full md:w-2/5 relative z-10 ${isLeft ? 'text-left' : 'text-right'}`}
+      >
+        <h2 className="text-[15vw] md:text-[10vw] font-serif italic text-secondary leading-none mb-8 -ml-4 md:-ml-8">{title}</h2>
+        <p className="text-xl md:text-2xl font-light text-secondary/70 mb-16 leading-relaxed">
+          {desc}
+        </p>
+        
+        <div className={`flex flex-col gap-12 ${isLeft ? 'border-l pl-8' : 'border-r pr-8 items-end'} border-gray-200`}>
+          <div>
+            <span className="text-xs font-bold uppercase tracking-widest text-secondary/50 block mb-2">Average Yield</span>
+            <span className="font-serif text-3xl text-secondary">{yieldAmount}</span>
+          </div>
+          <div>
+            <span className="text-xs font-bold uppercase tracking-widest text-secondary/50 block mb-2">Key Trait</span>
+            <span className="font-serif text-3xl text-secondary">{trait}</span>
+          </div>
+        </div>
+      </motion.div>
+    </section>
+  );
+};
+
 export const Breeds = () => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -9,16 +63,22 @@ export const Breeds = () => {
   });
 
   return (
-    <div ref={containerRef} className="bg-white text-gray-900 min-h-screen pt-40 pb-32 overflow-hidden">
-      <div className="max-w-[1600px] mx-auto px-6">
-        <motion.h1 
+    <div ref={containerRef} className="bg-background-light text-secondary min-h-screen pt-40 pb-32 overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6">
+        <motion.div 
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-[12vw] md:text-[10vw] font-display font-bold uppercase tracking-tighter leading-[0.85] mb-40"
+          className="mb-40"
         >
-          Elite <br/> <span className="text-primary font-serif italic lowercase">Genetics.</span>
-        </motion.h1>
+          <div className="inline-flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-full mb-8 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-primary" />
+            <span className="text-xs font-bold uppercase tracking-widest text-secondary/70">Our Breeds</span>
+          </div>
+          <h1 className="text-6xl md:text-8xl lg:text-[9rem] font-serif italic leading-[0.9] tracking-tight text-secondary">
+            Elite <br/> <span className="font-display font-medium not-italic text-primary">Genetics.</span>
+          </h1>
+        </motion.div>
 
         {/* Gir Section */}
         <div className="relative mb-64 min-h-screen flex items-center">
@@ -47,16 +107,31 @@ export const Breeds = () => {
         {/* Comparison Table */}
         <div className="max-w-5xl mx-auto mt-32 mb-32 border-t border-gray-200 pt-32">
           <div className="text-center mb-16">
-            <p className="text-primary font-bold tracking-[0.2em] uppercase text-sm mb-6 flex items-center justify-center gap-4">
-              <span className="w-8 h-[1px] bg-primary" /> Breed Comparison
-            </p>
-            <h2 className="text-4xl md:text-6xl font-display font-bold uppercase tracking-tighter">
-              Gir vs <span className="font-serif italic text-primary lowercase">Sahiwal</span>
+            <div className="inline-flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-full mb-6 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-primary" />
+              <span className="text-xs font-bold uppercase tracking-widest text-secondary/70">Breed Comparison</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-serif italic text-secondary">
+              Gir vs <span className="font-display font-medium not-italic text-secondary/40">Sahiwal</span>
             </h2>
           </div>
 
-          <div className="bg-green-50 rounded-3xl border border-green-100 overflow-hidden shadow-lg">
-            <div className="grid grid-cols-3 p-6 border-b border-green-200 bg-white text-sm uppercase tracking-widest font-bold text-gray-500">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.1
+                }
+              }
+            }}
+            className="bg-white rounded-[3rem] border border-gray-200 overflow-hidden shadow-sm"
+          >
+            <div className="grid grid-cols-3 p-8 border-b border-gray-200 bg-background-light text-xs uppercase tracking-widest font-bold text-secondary/60">
               <div>Feature</div>
               <div className="text-center text-primary">Gir</div>
               <div className="text-center text-primary">Sahiwal</div>
@@ -70,69 +145,19 @@ export const Breeds = () => {
               { feature: "Temperament", gir: "Docile & Friendly", sah: "Lethargic & Calm" },
               { feature: "Physical Trait", gir: "Prominent forehead, long ears", sah: "Reddish brown, heavy dewlap" }
             ].map((row, i) => (
-              <div key={i} className="grid grid-cols-3 p-6 border-b border-green-100 hover:bg-white transition-colors text-sm md:text-base">
-                <div className="font-bold text-gray-800">{row.feature}</div>
-                <div className="text-center text-gray-600">{row.gir}</div>
-                <div className="text-center text-gray-600">{row.sah}</div>
-              </div>
+              <motion.div 
+                key={i} 
+                variants={{ hidden: { opacity: 0, x: -20 }, visible: { opacity: 1, x: 0 } }}
+                className="grid grid-cols-3 p-8 border-b border-gray-100 hover:bg-background-light transition-colors text-sm md:text-base"
+              >
+                <div className="font-serif text-lg text-secondary">{row.feature}</div>
+                <div className="text-center text-secondary/70 font-light">{row.gir}</div>
+                <div className="text-center text-secondary/70 font-light">{row.sah}</div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
-  );
-};
-
-const BreedSection = ({ title, desc, img, yield: yieldAmount, trait, align }: any) => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"]
-  });
-
-  const yImg = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
-  const yText = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
-
-  const isLeft = align === 'left';
-
-  return (
-    <section ref={ref} className={`w-full flex flex-col ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 md:gap-24 relative`}>
-      
-      {/* Image Container */}
-      <div className="w-full md:w-3/5 h-[60vh] md:h-[90vh] relative overflow-hidden">
-        <motion.div style={{ y: yImg }} className="absolute inset-0 -top-[20%] -bottom-[20%]">
-          <img 
-            src={img} 
-            alt={title} 
-            className="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white opacity-80" />
-        </motion.div>
-      </div>
-      
-      {/* Text Container */}
-      <motion.div 
-        style={{ y: yText, opacity }}
-        className={`w-full md:w-2/5 relative z-10 ${isLeft ? 'text-left' : 'text-right'}`}
-      >
-        <h2 className="text-[15vw] md:text-[10vw] font-serif italic text-primary leading-none mb-8 -ml-4 md:-ml-8">{title}</h2>
-        <p className="text-xl md:text-3xl font-light text-gray-700 mb-16 leading-relaxed">
-          {desc}
-        </p>
-        
-        <div className={`flex flex-col gap-12 ${isLeft ? 'border-l-2 pl-8' : 'border-r-2 pr-8 items-end'} border-primary/30`}>
-          <div>
-            <span className="block text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">Average Yield</span>
-            <span className="text-4xl md:text-5xl font-display tracking-tighter text-gray-900">{yieldAmount}</span>
-          </div>
-          <div>
-            <span className="block text-xs font-bold uppercase tracking-[0.2em] text-primary mb-3">Key Trait</span>
-            <span className="text-4xl md:text-5xl font-display tracking-tighter text-gray-900">{trait}</span>
-          </div>
-        </div>
-      </motion.div>
-    </section>
   );
 };
